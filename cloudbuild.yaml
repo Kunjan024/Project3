@@ -1,3 +1,5 @@
+steps:
+
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'gcr.io/$PROJECT_ID/my-app', '.']
 
@@ -9,3 +11,4 @@
   - '--cluster=my-cluster'
   - '--location=us-central1'
   - '--filename=kubernetes-config.yaml'
+  - '--image=gcr.io/$PROJECT_ID/my-app'
