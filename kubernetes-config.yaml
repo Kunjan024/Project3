@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: my-app
-        image: gcr.io/$PROJECT_ID/my-app
+        image: gcr.io/$PROJECT_ID/my-app  # Replace $PROJECT_ID with your actual GCP project ID
         ports:
         - containerPort: 8080
 ---
