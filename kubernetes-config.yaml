@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: my-app
+  labels:
+    cloud.google.com/admission-webhook: "enabled" 
 spec:
   replicas: 1
   selector:
@@ -14,7 +16,7 @@ spec:
     spec:
       containers:
       - name: my-app
-        image: gcr.io/$PROJECT_ID/my-app  # Replace $PROJECT_ID with your actual GCP project ID
+        image: gcr.io/project-3-455523/my-app 
         ports:
         - containerPort: 8080
 ---
