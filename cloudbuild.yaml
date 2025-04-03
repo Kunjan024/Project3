@@ -2,17 +2,14 @@ options:
   logging: CLOUD_LOGGING_ONLY
 
 steps:
-# Build Docker image
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'gcr.io/$PROJECT_ID/my-app', '.']
 
-# Push to Google Container Registry
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/$PROJECT_ID/my-app']
 
-# Deploy to your Autopilot cluster
 - name: 'gcr.io/cloud-builders/kubectl'
   args: ['apply', '-f', 'kubernetes-config.yaml']
   env:
-  - 'CLOUDSDK_COMPUTE_ZONE=us-central1'  # Autopilot uses region, not zone
-  - 'CLOUDSDK_CONTAINER_CLUSTER=autopilot-cluster-1'  # Use your actual cluster name
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1' 
+  - 'CLOUDSDK_CONTAINER_CLUSTER=autopilot-cluster-1'
