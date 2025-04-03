@@ -3,13 +3,13 @@ options:
 
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/$PROJECT_ID/my-app', '.']
+  args: ['build', '-t', 'gcr.io/project-3-455523/my-app', '.']
 
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/$PROJECT_ID/my-app']
+  args: ['push', 'gcr.io/project-3-455523/my-app']
 
 - name: 'gcr.io/cloud-builders/kubectl'
   args: ['apply', '-f', 'kubernetes-config.yaml']
   env:
-  - 'CLOUDSDK_COMPUTE_ZONE=us-central1' 
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1'
   - 'CLOUDSDK_CONTAINER_CLUSTER=autopilot-cluster-1'
